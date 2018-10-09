@@ -39,6 +39,16 @@ class EstrattoreTest extends PHPUnit\Framework\TestCase
             $annotations
         );
     }
+
+    public function testDetectMandatoryFields()
+    {
+        $estr = new Estrattore(GenericClass::class);
+        $annotations = $estr->mandatory();
+        $this->assertEquals(
+            ['foo', 'bar'],
+            $annotations
+        );
+    }
 }
 
 class MyFirstEntity
@@ -49,4 +59,26 @@ class MyFirstEntity
      * })
      */
     private $email;
+}
+
+class AnnotatedClass
+{
+    /**
+     * @Json({
+     *   "ciaone" : "proprio"
+     * })
+     */
+    private $campo;
+}
+
+class GenericClass
+{
+    /** @Json({"mandatory":"true"}) */
+    private $foo;
+
+    /** @Json({"mandatory":"true"}) */
+    private $bar;
+
+    /** @Json({"mandatory":"false"}) */
+    private $fizz;
 }

@@ -63,4 +63,19 @@ class Estrattore
             '_fields' => $this->fieldsAnnotations,
         ];
     }
+
+    public function mandatory()
+    {
+        $annotations = $this->getVo();
+
+        $collection = [];
+
+        foreach ($annotations['_fields'] as $k => $v) {
+            if($v['mandatory'] == "true") {
+                $collection[] = $k;
+            }
+        }
+
+        return $collection;
+    }
 }
