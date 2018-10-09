@@ -1,0 +1,30 @@
+{
+    "name": "sensorario/annotation",
+    "description": "annotation library",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "": [
+                "src/",
+                "tests/resources/"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Simone Gentili",
+            "email": "sensorario@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "sensorario/container": "^2.0"
+    }
+}
